@@ -26,21 +26,16 @@
         flex: 1 1 49%;
         max-width: 49%;
         min-width: 450px;
+        height: 500px;
         overflow: hidden;
-        aspect-ratio: 16 / 9;
         background: white;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         position: relative;
     }
-    .scale-wrapper {
-        transform-origin: top left;
-        width: 1920px;
-        height: 1080px;
-    }
-    .tableauPlaceholder, .tableauViz, object {
-        width: 1920px;
-        height: 1080px;
-    }
+    .tableauPlaceholder, object {
+    width: 100% !important;
+    height: 100% !important;
+}
 </style>
 </head>
 <body>
@@ -50,57 +45,38 @@
 <div class="grid">
     <!-- Dashboard 1 -->
     <div class="viz">
-        <div class="scale-wrapper" id="scale1">
-            <div class='tableauPlaceholder' id='viz1'>
-                <noscript><a href='#'><img alt='MBA Decision' src='https://public.tableau.com/static/images/MB/MBA_Visualization/Dashboard1/1_rss.png' style='border: none' /></a></noscript>
-                <object class='tableauViz'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
-                    <param name='embed_code_version' value='3'/>
-                    <param name='name' value='MBA_Visualization/Dashboard1'/>
-                    <param name='tabs' value='no'/>
-                    <param name='toolbar' value='yes'/>
-                </object>
-            </div>
+        <div class='tableauPlaceholder' id='viz1' style='position: relative;'>
+            <noscript><a href='#'>
+                <img alt='MBA Decision' src='https://public.tableau.com/static/images/MB/MBA_Visualization/Dashboard1/1_rss.png' style='border: none' />
+            </a></noscript>
+            <object class='tableauViz' style='display: block;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+                <param name='embed_code_version' value='3'/>
+                <param name='name' value='MBA_Visualization/Dashboard1'/>
+                <param name='tabs' value='no'/>
+                <param name='toolbar' value='yes'/>
+            </object>
         </div>
     </div>
 
     <!-- Dashboard 2 -->
     <div class="viz">
-        <div class="scale-wrapper" id="scale2">
-            <div class='tableauPlaceholder' id='viz2'>
-                <noscript><a href='#'><img alt='Walmart Sales' src='https://public.tableau.com/static/images/Wa/WalmartIncomesVisualization/Dashboard1/1_rss.png' style='border: none' /></a></noscript>
-                <object class='tableauViz'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
-                    <param name='embed_code_version' value='3'/>
-                    <param name='name' value='WalmartIncomesVisualization/Dashboard1'/>
-                    <param name='tabs' value='no'/>
-                    <param name='toolbar' value='yes'/>
-                </object>
-            </div>
+        <div class='tableauPlaceholder' id='viz2' style='position: relative'>
+            <noscript><a href='#'>
+                <img alt='Walmart Sales' src='https://public.tableau.com/static/images/Wa/WalmartIncomesVisualization/Dashboard1/1_rss.png' style='border: none' />
+            </a></noscript>
+            <object class='tableauViz' style='display: block;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+                <param name='embed_code_version' value='3'/>
+                <param name='name' value='WalmartIncomesVisualization/Dashboard1'/>
+                <param name='tabs' value='no'/>
+                <param name='toolbar' value='yes'/>
+            </object>
         </div>
     </div>
 </div>
 
 <script src='https://public.tableau.com/javascripts/api/viz_v1.js'></script>
-<script>
-function resizeDashboard(containerId, scaleWrapperId) {
-    const container = document.getElementById(containerId);
-    const scaleWrapper = document.getElementById(scaleWrapperId);
-    const containerWidth = container.offsetWidth;
-    const scale = containerWidth / 1920;
-    scaleWrapper.style.transform = `scale(${scale})`;
-}
-
-// Inicializar
-resizeDashboard('viz1', 'scale1');
-resizeDashboard('viz2', 'scale2');
-
-// Recalcular en resize
-window.addEventListener('resize', () => {
-    resizeDashboard('viz1', 'scale1');
-    resizeDashboard('viz2', 'scale2');
-});
-</script>
 
 </body>
 </html>
